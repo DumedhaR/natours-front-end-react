@@ -8,5 +8,5 @@ export const getAllTours = async () => {
 
 export const getTour = async (tourId: string) => {
     const res = await axios.get(`/api/v1/tours/${tourId}`);
-    return res.data;
+    return res.data.data.data;
 }

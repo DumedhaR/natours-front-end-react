@@ -1,7 +1,9 @@
+import type { Review } from "./review";
+
 export interface Tour {
     _id: string;
     name: string;
-    slug?: string;
+    slug: string;
     duration: number;
     maxGroupSize: number;
     difficulty: 'easy' | 'medium' | 'difficult';
@@ -9,29 +11,32 @@ export interface Tour {
     ratingsQuantity: number;
     price: number;
     priceDiscount?: number;
-    summary: string;
-    description?: string;
+    summary?: string;
+    description: string;
     imageCover: string;
-    images?: string[];
+    images: string[];
+    createdAt: string;
     startDates: string[];
     startLocation: {
       type: 'Point';
       coordinates: number[];
-      address?: string;
-      description?: string;
+      address: string;
+      description: string;
     };
     locations: {
       type: 'Point';
       coordinates: number[];
-      address?: string;
-      description?: string;
-      day?: number;
+      address: string;
+      description: string;
+      day: number;
     }[];
-    guides?: {
+    guides: {
       _id: string;
+      role: string;
       name: string;
       email: string;
-      photo?: string;
+      photo: string;
     }[];
+    reviews?: Review[];
   }
   

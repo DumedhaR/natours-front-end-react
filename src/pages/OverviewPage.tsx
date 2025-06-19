@@ -92,7 +92,7 @@ const OverviewPage: React.FC = () => {
                 </span>
               </p>
               <Link
-                to={`/tour/${tour.slug}`}
+                to={`/tour/${tour.slug}-${tour._id}`}
                 className="btn btn--green btn--small"
               >
                 Details
