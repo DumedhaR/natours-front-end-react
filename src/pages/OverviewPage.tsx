@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAllTours } from '../services/tourService';
-import type { Tour } from '../types/Tour';
+import type { Tour } from '../types/tour';
 import { Link } from 'react-router-dom';
 
 const OverviewPage: React.FC = () => {
