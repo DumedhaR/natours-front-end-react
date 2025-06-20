@@ -1,12 +1,13 @@
 
 import { useUser } from "../hooks/useUser";
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const { user} = useUser();
   return (
     <header className="header">
       <nav className="nav nav--tours">
-        <a className="nav__el" href="/">All tours</a>
+      <Link className="nav__el" to="/">All tours</Link>
       </nav>
 
       <div className="header__logo">
