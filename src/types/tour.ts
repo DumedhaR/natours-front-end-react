@@ -1,4 +1,5 @@
 import type { Review } from "./review";
+import type { User } from "./user";
 
 export interface Tour {
     _id: string;
@@ -30,13 +31,7 @@ export interface Tour {
       description: string;
       day: number;
     }[];
-    guides: {
-      _id: string;
-      role: string;
-      name: string;
-      email: string;
-      photo: string;
-    }[];
+    guides: User[];
     reviews?: Review[];
   }
   

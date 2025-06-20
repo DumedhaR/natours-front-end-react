@@ -1,14 +1,8 @@
 
-interface User {
-  name: string;
-  photo: string;
-}
+import { useUser } from "../hooks/useUser";
 
-interface HeaderProps {
-  user?: User | null;
-}
-
-const Header: React.FC<HeaderProps> = ({ user }) => {
+const Header: React.FC = () => {
+  const { user} = useUser();
   return (
     <header className="header">
       <nav className="nav nav--tours">
