@@ -19,13 +19,13 @@ export interface Tour {
     startDates: string[];
     startLocation: {
       type: 'Point';
-      coordinates: number[];
+      coordinates: [number, number];
       address: string;
       description: string;
     };
     locations: {
       type: 'Point';
-      coordinates: number[];
+      coordinates: [number, number];
       address: string;
       description: string;
       day: number;

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getTour } from '../services/tourService';
 import type { Tour } from '../types/Tour';
 import ReviewCard from '../components/ReviewCard';
+import { displayMap } from '../utills/mapBox';
 
 const OverviewBox: React.FC<{ label: string; text: string; icon: string }> = ({
   label,
@@ -50,8 +51,15 @@ const TourDetailPage: React.FC = () => {
     fetchTour();
   }, [slugAndId]);
 
+  useEffect(() => {
+    if (tour?.locations && document.getElementById('map')) {
+      displayMap(tour.locations);
+    }
+  }, [tour]); // triggers after setTour updates
+
   if (loading) return <p>Loading tour details...</p>;
   if (!tour) return <p>Tour not found.</p>;
+  
   // Convert start date string to formatted date
   const nextDate = new Date(tour.startDates[0]).toLocaleString('en-US', {
     month: 'long',
@@ -152,10 +160,7 @@ const TourDetailPage: React.FC = () => {
 
       {/* Map Section */}
       <section className="section-map">
-        <div
-          id="map"
-          style={{ height: '400px' }}
-        />
+        <div id="map"/>
       </section>
 
       {/* Reviews Section */}

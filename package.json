@@ -17,6 +17,7 @@
     "@mui/material": "^7.1.1",
     "@tailwindcss/vite": "^4.1.10",
     "axios": "^1.10.0",
+    "mapbox-gl": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.10"
