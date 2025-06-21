@@ -10,9 +10,9 @@ const OverviewPage: React.FC = () => {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const data = await getAllTours();
+        const result = await getAllTours();
         // console.log(data);
-        setTours(data);
+        setTours(result);
       } catch (err) {
         console.error('Failed to load tours:', err);
       } finally {

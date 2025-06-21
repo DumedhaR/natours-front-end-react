@@ -12,14 +12,14 @@ const LoginPage: React.FC =()=>{
     const { setUser } = useUser();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try{
-           const data = await login(email, password);
-           if(data.status === 'success'){
-                setUser(data.data.user);
+           const result = await login(email, password);
+           if(result.status === 'success'){
+                setUser(result.data.user);
                 showAlert('success', 'Logged in successfully!');
-                setTimeout(() => navigate('/'), 1000);
+                setTimeout(() => navigate('/'), 2000);
            } 
         }catch (err: unknown) {
             let message = 'Login failed, Please try again!';

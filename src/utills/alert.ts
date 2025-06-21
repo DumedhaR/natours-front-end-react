@@ -4,7 +4,7 @@ export const hideAlert = () => {
     if (el) el.remove();
   };
   
-  export const showAlert = (type: 'success' | 'error', msg: string, time = 6) => {
+  export const showAlert = (type: 'success' | 'error', msg: string, time = 3) => {
     hideAlert();
     const markup = `<div class="alert alert--${type}">${msg}</div>`;
     document.body.insertAdjacentHTML('afterbegin', markup);

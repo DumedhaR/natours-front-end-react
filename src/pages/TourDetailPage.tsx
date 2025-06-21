@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getTour } from '../services/tourService';
-import type { Tour } from '../types/Tour';
+import type { Tour } from '../types/tour';
 import ReviewCard from '../components/ReviewCard';
 import { displayMap } from '../utills/mapBox';
+import { useUser } from '../hooks/useUser';
 
 const OverviewBox: React.FC<{ label: string; text: string; icon: string }> = ({
   label,
@@ -23,8 +24,8 @@ const TourDetailPage: React.FC = () => {
 
   const { slugAndId } = useParams<{ slugAndId: string }>();
   const [tour, setTour] = useState<Tour | null>(null);
-  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { user } = useUser();
 
   useEffect(() => {
     if (!slugAndId) return; // Guard: don't run if param is missing
@@ -203,9 +204,9 @@ const TourDetailPage: React.FC = () => {
                 Book tour now!
               </button>
             ) : (
-              <a className="btn btn--green span-all-rows" href="/login">
+              <Link className="btn btn--green span-all-rows" to="/login">
                 Log in to book tour
-              </a>
+              </Link>
             )}
           </div>
         </div>

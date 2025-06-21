@@ -39,14 +39,14 @@ const Header: React.FC = () => {
         {user ? (
           <>
             <a className="nav__el nav__el--logout" onClick={handleLogout} >Log out</a>
-            <a className="nav__el" href="/me">
+            <Link className="nav__el" to="/me">
               <img
                 className="nav__user-img"
-                src={`/img/users/${user.photo}`}
+                src={`http://localhost:8000/img/users/${user.photo}`}
                 alt={`Photo of ${user.name}`}
               />
               <span>{user.name.split(' ')[0]}</span>
-            </a>
+            </Link>
           </>
         ) : (
           <>
