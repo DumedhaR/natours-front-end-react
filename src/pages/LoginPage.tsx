@@ -19,7 +19,7 @@ const LoginPage: React.FC =()=>{
            if(result.status === 'success'){
                 setUser(result.data.user);
                 showAlert('success', 'Logged in successfully!');
-                setTimeout(() => navigate('/'), 2000);
+                navigate('/');
            } 
         }catch (err: unknown) {
             let message = 'Login failed, Please try again!';

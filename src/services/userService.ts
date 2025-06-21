@@ -8,3 +8,12 @@ export const updateUser = async (formData: FormData) => {
     });
     return res.data;
   };
+
+export const updatePassword = async (currentPassword: string, newPassword: string, confirmPassword: string) => {
+  const res = await axios.patch('/api/v1/users/updateMyPassword',{
+    passwordCurrent: currentPassword,
+    password: newPassword,
+    passwordConfirm: confirmPassword,
+  });
+  return res.data;
+}
