@@ -5,6 +5,7 @@ import OverviewPage from "./pages/OverviewPage";
 import TourDetailPage from "./pages/TourDetailPage";
 import LoginPage from "./pages/LoginPage";
 import UserAccountPage from "./pages/UserAccountPage";
+import BookingSuccess from "./pages/BookingSuccess";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="tour/:slugAndId" element={<TourDetailPage />} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/me" element={<UserAccountPage/>} />
+            <Route path = "/booking-success" element={<BookingSuccess/>} />
           </Route>
         </Routes>
       </Router>

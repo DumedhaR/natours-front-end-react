@@ -3,22 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { getTour } from '../services/tourService';
 import type { Tour } from '../types/tour';
 import ReviewCard from '../components/ReviewCard';
+import OverviewBox from '../components/OverviewBox';
 import { displayMap } from '../utills/mapBox';
 import { useUser } from '../hooks/useUser';
+import { bookTour } from '../services/bookingService';
 
-const OverviewBox: React.FC<{ label: string; text: string; icon: string }> = ({
-  label,
-  text,
-  icon,
-}) => (
-  <div className="overview-box__detail">
-    <svg className="overview-box__icon">
-      <use xlinkHref={`/img/icons.svg#icon-${icon}`} />
-    </svg>
-    <span className="overview-box__label">{label}</span>
-    <span className="overview-box__text">{text}</span>
-  </div>
-);
 
 const TourDetailPage: React.FC = () => {
 
@@ -56,11 +45,16 @@ const TourDetailPage: React.FC = () => {
     if (tour?.locations && document.getElementById('map')) {
       displayMap(tour.locations);
     }
-  }, [tour]); // triggers after setTour updates
+  }, [tour]); 
 
   if (loading) return <p>Loading tour details...</p>;
   if (!tour) return <p>Tour not found.</p>;
   
+  const handleBookTour = async () => {
+    await bookTour(tour._id);
+    // console.log(tour._id);
+  }
+
   // Convert start date string to formatted date
   const nextDate = new Date(tour.startDates[0]).toLocaleString('en-US', {
     month: 'long',
@@ -199,7 +193,7 @@ const TourDetailPage: React.FC = () => {
               <button
                 className="btn btn--green span-all-rows"
                 id="book-tour"
-                data-tour-id={tour._id}
+                onClick={handleBookTour}
               >
                 Book tour now!
               </button>
