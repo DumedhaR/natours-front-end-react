@@ -16,9 +16,9 @@ const BookingSuccess: React.FC = () => {
     const confirmBooking = async () => {
       try {
         await axiosIns.post('/api/v1/bookings/save-booking-session', { sessionId });
-        showAlert('success', 'Booking confirmed!');
+        showAlert('success', 'Booking confirmed');
       } catch (err: unknown) {
-        let message = 'Booking confirmation failed!';
+        let message = 'Booking confirmation failed';
         if (axios.isAxiosError(err)) {
           message = err.response?.data?.message || err.message || message;
         } else if (err instanceof Error) {

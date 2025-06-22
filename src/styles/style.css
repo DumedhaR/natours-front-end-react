@@ -1323,3 +1323,9 @@ body {
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
+
+.form__error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+}

@@ -18,17 +18,17 @@ const LoginPage: React.FC =()=>{
            const result = await login(email, password);
            if(result.status === 'success'){
                 setUser(result.data.user);
-                showAlert('success', 'Logged in successfully!');
+                showAlert('success', 'Logged in successfully');
                 navigate('/');
            } 
         }catch (err: unknown) {
-            let message = 'Login failed, Please try again!';
+            let message = 'Login failed, Please try again';
             if (axios.isAxiosError(err)) {
               message = err.response?.data?.message || err.message || message;
             } else if (err instanceof Error) {
               message = err.message;
             }
-        
+            
             showAlert('error', message);
           }  
     };

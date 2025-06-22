@@ -38,9 +38,9 @@ const UserAccountPage: React.FC = () => {
   
       const result = await updateUser(formData);
       setUser(result.data.user);
-      showAlert('success', 'Profile updated successfully!');
+      showAlert('success', 'Profile updated successfully');
     } catch (err: unknown) {
-      let message = 'Failed, Please try again!';
+      let message = 'Failed, Please try again';
       if (axios.isAxiosError(err)) {
         message = err.response?.data?.message || err.message || message;
       } else if (err instanceof Error) {
@@ -62,13 +62,13 @@ const UserAccountPage: React.FC = () => {
     try {
       const result = await updatePassword(currentPassword, newPassword, confirmPassword);
       if (result.status === 'success') {
-        showAlert('success', 'Password updated successfully!');
+        showAlert('success', 'Password updated successfully');
         setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
       }
     } catch (err: unknown) {
-      let message = 'Failed, Please try again!';
+      let message = 'Failed, Please try again';
       if (axios.isAxiosError(err)) {
         message = err.response?.data?.message || err.message || message;
       } else if (err instanceof Error) {
